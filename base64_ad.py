@@ -5,25 +5,25 @@
 # Exemple : ["010000","010100","001001","000011","010001","000000"]
 
 
-def binaire_to_decimal(binaire):
+def binary_to_decimal(transform_list):
     """ Transform binary value to decimal value
 
         Args:
-            binaire(list): list of the value binaire.
+            transform_list(list): list of the value binary.
 
         Returns:
             List: decimal.
 
     """
 
-    for index, number in enumerate(binaire):
-        binaire[index] = int(number, 2)
+    for index, number in enumerate(transform_list):
+        transform_list[index] = int(number, 2)
 
-    print(binaire)
-    return binaire
+    print(transform_list)
+    return transform_list
 
 
-binaire_to_decimal(["010000","010100","001001","000011","010001","000000"])
+binary_to_decimal(["010000","010100","001001","000011","010001","000000"])
 
 # Result = [16, 20, 9, 3, 17, 0]
 
@@ -77,3 +77,36 @@ def base64_list_tostring(transform_list):
 base64_list_tostring(["Q", "U", "J", "D", "R", "A"])
 
 # Result : "QUJDRA"
+
+# Parti 10 : Cadrer la chaine dans un champ d'une longueur multiple de quatre (cadrée à gauche comblée par des "="
+# Example : "QUJDRA=="
+
+
+def string_base64_commpleting(complete_string):
+    """ Add caractere compliment if complete_string is not multipl of 4
+
+        Args:
+            complete_string(List): element enceded in base64
+
+        Returns:
+            String : retourn final element encoded in base64
+
+    """
+
+    result_modulo = len(complete_string) % 4
+    complet_element = ""
+    print(result_modulo)
+    if result_modulo > 0 :
+        i = 0
+        while i < result_modulo:
+            complet_element += "="
+            i += 1
+
+    complete_string += complet_element
+    print(complete_string)
+    return complete_string
+
+
+string_base64_commpleting("QUJDRA")
+
+# Result : "QUJDRA=="
