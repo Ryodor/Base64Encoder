@@ -6,7 +6,7 @@
 
 
 def binaire_to_decimal(binaire):
-    """ Transform binaire value to decimal value
+    """ Transform binary value to decimal value
 
         Args:
             binaire(list): list of the value binaire.
@@ -25,7 +25,7 @@ def binaire_to_decimal(binaire):
 
 binaire_to_decimal(["010000","010100","001001","000011","010001","000000"])
 
-# resultat = [16, 20, 9, 3, 17, 0]
+# Result = [16, 20, 9, 3, 17, 0]
 
 
 # Parti 9 : Transformer chaque element de la liste dans ca valeur decimal
@@ -33,22 +33,47 @@ binaire_to_decimal(["010000","010100","001001","000011","010001","000000"])
 
 base64_caractere = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/")
 
-def decimal_to_base64(transformList):
-    """ Transform ecimal value to base64 caractere
+
+def decimal_to_base64(transform_list):
+    """ Transform decimal value to base64 caractere
 
         Args:
-            transformList(List): list of the value decimal.
+            transform_list(List): list of the value decimal.
 
         Returns:
             List: String value.
 
     """
-    for index, number in enumerate(transformList):
-        transformList[index] = base64_caractere[transformList[index]]
+    for index, number in enumerate(transform_list):
+        transform_list[index] = base64_caractere[transform_list[index]]
 
-    print(transformList)
-    return transformList
+    print(transform_list)
+    return transform_list
+
 
 decimal_to_base64([16, 20, 9, 3, 17, 0])
 
-# resultat = ["Q", "U", "J", "D", "R", "A"]
+# Result = ["Q", "U", "J", "D", "R", "A"]
+
+
+# Parti 10 : Transformer la liste en une chaine de caractères
+# Example : ["Q", "U", "J", "D", "R", "A"]
+
+def base64_list_tostring(transform_list):
+    """ Transform decimal value to base64 caractere
+
+        Args:
+            transform_list(List): list of the value caractere base64.
+
+        Returns:
+            String : string value of the list
+
+    """
+
+    print(''.join(transform_list))
+    return ''.join(transform_list)
+
+
+base64_list_tostring(["Q", "U", "J", "D", "R", "A"])
+
+# Result : "QUJDRA"
