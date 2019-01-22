@@ -19,7 +19,6 @@ def binary_to_decimal(transform_list):
     for index, number in enumerate(transform_list):
         transform_list[index] = int(number, 2)
 
-    print("binary_to_decimal : "+transform_list)
     return transform_list
 
 
@@ -47,7 +46,6 @@ def decimal_to_base64(transform_list):
     for index, number in enumerate(transform_list):
         transform_list[index] = base64_caractere[transform_list[index]]
 
-    print("decimal_to_base64 : "+transform_list)
     return transform_list
 
 
@@ -70,7 +68,6 @@ def base64_list_tostring(transform_list):
 
     """
 
-    print("base64_list_tostring"+''.join(transform_list))
     return ''.join(transform_list)
 
 
@@ -102,7 +99,6 @@ def string_base64_commpleting(complete_string):
             i += 1
 
     complete_string += complet_element
-    print("string_base64_commpleting : "+complete_string)
     return complete_string
 
 
