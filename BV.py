@@ -66,7 +66,7 @@ def transform_to_binary(ascii_list):
     """
     binary_list = []
     for element in ascii_list:
-        i = bin(element)
+        i = bin(element).replace('b', '')
         binary_list.append(i)
 
     print(binary_list)
@@ -93,3 +93,20 @@ def merge_elements(binary_list):
 
 
 merged_elements = merge_elements(binary_list)
+
+
+def slice_list(merged_elements):
+    """
+    This method slice a string in a list of string. Each string is equal to 6 characters.
+    The last element of the list can be inferior or equal to 6 characters
+    :param
+        merged_elements (string): The string you want to split
+    :return
+        sliced_list ([]): A list
+    """
+    sliced_list = [merged_elements[i:i + 6] for i in range(0, len(merged_elements), 6)]
+    print(sliced_list)
+    return sliced_list
+
+
+slice_list(merged_elements)
