@@ -2,7 +2,7 @@ def return_char_string():
     """This method returns a string with 'ABCD' in value
 
     :return:
-        string: always equal to 'ABCD'
+        char_string (string): always equal to 'ABCD'
     """
 
 
@@ -19,9 +19,9 @@ def transform_to_list(char_str):
     This method transforms a string into a list filled with every character of the string
 
     :param
-        char_str (string) : The only parameter. It has to be a string
+        char_str (string) : The only parameter.
     :return:
-        chars ([]) : A list of strings
+        chars ([]) : A list
     """
     chars = []
     for character in char_str:
@@ -60,9 +60,9 @@ def transform_to_binary(ascii_list):
     This method transforms each element in its binary value
 
     :param
-        ascii_list ([]): A list of ints
+        ascii_list ([]): A list
     :return:
-        binary_list ([]): A list of ints
+        binary_list ([]): A list
     """
     binary_list = []
     for element in ascii_list:
@@ -73,4 +73,23 @@ def transform_to_binary(ascii_list):
     return binary_list
 
 
-transform_to_binary(ascii_list)
+binary_list = transform_to_binary(ascii_list)
+
+
+def merge_elements(binary_list):
+    """
+    This method concatenate every elements in a list into a string
+    :param
+        binary_list (string): A list
+    :return
+        merged_elements: A string
+    """
+    merged_elements = ''
+    for element in binary_list:
+        merged_elements += str(element)
+
+    print(merged_elements)
+    return merged_elements
+
+
+merged_elements = merge_elements(binary_list)
