@@ -23,11 +23,29 @@ def b64_decimal_to_b64_binary(transform_element):
 
             transform_element[index] = binary_value
 
-        print(transform_element)
-
     return transform_element
 
 
 b64_decimal_to_b64_binary([16, 20, 9, 3, 17, 0])
 
 # Result : ["010000","010100","001001","000011","010001","000000"]
+
+# Story 18: Transformer la liste en une chaine de caractères
+# Exemple : ["010000","010100","001001","000011","010001","000000"]
+
+def binary_to_string(tranfrom_value):
+    """ Tranform binary value list to string binary value
+
+    Args:
+        tranfrom_value(List):  List binary value
+
+    Returns: string binary value
+
+    """
+
+    return ''.join(tranfrom_value)
+
+
+binary_to_string(["010000","010100","001001","000011","010001","000000"])
+
+#Result : "010000010100001001000011010001000000"
