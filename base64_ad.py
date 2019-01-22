@@ -5,27 +5,27 @@
 # Exemple : ["010000","010100","001001","000011","010001","000000"]
 
 
-def binaire_to_decimal(binaire):
-    """ Transform binaire value to decimal value
+def binary_to_decimal(transform_list):
+    """ Transform binary value to decimal value
 
         Args:
-            binaire(list): list of the value binaire.
+            transform_list(list): list of the value binary.
 
         Returns:
             List: decimal.
 
     """
 
-    for index, number in enumerate(binaire):
-        binaire[index] = int(number, 2)
+    for index, number in enumerate(transform_list):
+        transform_list[index] = int(number, 2)
 
-    print(binaire)
-    return binaire
+    print(transform_list)
+    return transform_list
 
 
-binaire_to_decimal(["010000","010100","001001","000011","010001","000000"])
+binary_to_decimal(["010000","010100","001001","000011","010001","000000"])
 
-# resultat = [16, 20, 9, 3, 17, 0]
+# Result = [16, 20, 9, 3, 17, 0]
 
 
 # Parti 9 : Transformer chaque element de la liste dans ca valeur decimal
@@ -33,22 +33,80 @@ binaire_to_decimal(["010000","010100","001001","000011","010001","000000"])
 
 base64_caractere = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/")
 
-def decimal_to_base64(transformList):
-    """ Transform ecimal value to base64 caractere
+
+def decimal_to_base64(transform_list):
+    """ Transform decimal value to base64 caractere
 
         Args:
-            transformList(List): list of the value decimal.
+            transform_list(List): list of the value decimal.
 
         Returns:
             List: String value.
 
     """
-    for index, number in enumerate(transformList):
-        transformList[index] = base64_caractere[transformList[index]]
+    for index, number in enumerate(transform_list):
+        transform_list[index] = base64_caractere[transform_list[index]]
 
-    print(transformList)
-    return transformList
+    print(transform_list)
+    return transform_list
+
 
 decimal_to_base64([16, 20, 9, 3, 17, 0])
 
-# resultat = ["Q", "U", "J", "D", "R", "A"]
+# Result = ["Q", "U", "J", "D", "R", "A"]
+
+
+# Parti 10 : Transformer la liste en une chaine de caractères
+# Example : ["Q", "U", "J", "D", "R", "A"]
+
+def base64_list_tostring(transform_list):
+    """ Transform decimal value to base64 caractere
+
+        Args:
+            transform_list(List): list of the value caractere base64.
+
+        Returns:
+            String : string value of the list
+
+    """
+
+    print(''.join(transform_list))
+    return ''.join(transform_list)
+
+
+base64_list_tostring(["Q", "U", "J", "D", "R", "A"])
+
+# Result : "QUJDRA"
+
+# Parti 10 : Cadrer la chaine dans un champ d'une longueur multiple de quatre (cadrée à gauche comblée par des "="
+# Example : "QUJDRA=="
+
+
+def string_base64_commpleting(complete_string):
+    """ Add caractere compliment if complete_string is not multipl of 4
+
+        Args:
+            complete_string(List): element enceded in base64
+
+        Returns:
+            String : retourn final element encoded in base64
+
+    """
+
+    result_modulo = len(complete_string) % 4
+    complet_element = ""
+    print(result_modulo)
+    if result_modulo > 0 :
+        i = 0
+        while i < result_modulo:
+            complet_element += "="
+            i += 1
+
+    complete_string += complet_element
+    print(complete_string)
+    return complete_string
+
+
+string_base64_commpleting("QUJDRA")
+
+# Result : "QUJDRA=="
