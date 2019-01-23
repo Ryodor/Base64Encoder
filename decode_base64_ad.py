@@ -147,6 +147,7 @@ def decimal_list_to_ascii(transfrom_value):
     for index, value in enumerate(transfrom_value):
         transfrom_value[index] = chr(value)
 
+    return transfrom_value
 
 decimal_list_to_ascii([65, 66, 67, 68])
 
@@ -173,3 +174,32 @@ def list_decimal_to_string(transform_string):
 list_decimal_to_string(['A', 'B', 'C', 'D'])
 
 # Result : "ABCD"
+
+
+def main():
+    """ This is main function and test all function
+
+    Returns: none
+
+    """
+
+    operation1 = b64_decimal_to_b64_binary([16, 20, 9, 3, 17, 0])
+    print("test b64_decimal_to_b64_binary : ", operation1)
+    operation2 = binary_to_string(operation1)
+    print("test binary_to_string : ", operation2)
+    operation3 = transfrom_binary_multipl8(operation2)
+    print("test transfrom_binary_multipl8 : ", operation3)
+    operation4 = transform_binary_string_to_list(operation3)
+    print("test transform_binary_string_to_list : ", operation4)
+    operation5 = transform_list_binary_to_decimal(operation4)
+    print("test transform_list_binary_to_decimal : ", operation5)
+    operation6 = decimal_list_to_ascii(operation5)
+    print("test decimal_list_to_ascii : ", operation6)
+    operation7 = list_decimal_to_string(operation6)
+    print("test list_decimal_to_string : ", operation7)
+
+
+if __name__ == "__main__":
+    # execute only if run as a script
+    main()
+
