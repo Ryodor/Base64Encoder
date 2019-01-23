@@ -1,3 +1,6 @@
+# Step 1
+import re
+
 def return_char_string():
     """This method returns a string with 'ABCD' in value
 
@@ -96,7 +99,40 @@ def fill_blank(sliced_list):
     return filled_list
 
 
+# Step 2
+
+def return_base_sixty_four():
+    """This method returns a string with 'QUJDRA==' in value
+
+    Returns:
+        char_string (string): always equal to 'QUJDRA=='
+    """
+    base_sixty_four = 'QUJDRA=='
+    return base_sixty_four
+
+
+def check(base_sixty_four):
+    """
+    This method checks if the string is valid in base64
+    Args:
+        base_sixty_four (string): A string
+
+    Returns
+        (boolean): A boolean
+
+    """
+    for element in base_sixty_four:
+        x = re.findall("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$", element)
+        if x is None:
+            return False
+        else:
+            return True
+
+
 def main():
+
+    # Step 1
+
     char_string = return_char_string()
     char_list = transform_to_list(char_string)
     ascii_list = transform_to_ascii(char_list)
@@ -105,6 +141,11 @@ def main():
     sliced_list = slice_list(merged_elements)
     filled_list = fill_blank(sliced_list)
 
+    # Step 2
+
+    base_sixty_four = return_base_sixty_four()
+    decoded = check(base_sixty_four)
+    print(decoded)
 
 if __name__ == '__main__':
     main()
