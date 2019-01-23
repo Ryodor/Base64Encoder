@@ -1,6 +1,7 @@
 # Step 1
 import re
 
+
 def return_char_string():
     """This method returns a string with 'ABCD' in value
 
@@ -117,20 +118,39 @@ def check(base_sixty_four):
     Args:
         base_sixty_four (string): A string
 
-    Returns
+    Returns:
         (boolean): A boolean
 
     """
-    for element in base_sixty_four:
-        x = re.findall("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$", element)
-        if x is None:
-            return False
-        else:
-            return True
+    x = re.findall("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$", base_sixty_four)
+    if x is None:
+        return False
+    else:
+        return True
+
+
+def remove_equals(base_sixty_four):
+    """
+    This method removes the equal sign if there is some
+    Args:
+        base_sixty_four (string): A string
+
+    Returns:
+        removed (string): A string without "="
+
+    """
+    x = re.findall("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$", base_sixty_four)
+    removed = ''
+    if x is None:
+        return False
+    else:
+        for element in base_sixty_four:
+            i = element.replace('=', '')
+            removed += i
+        return removed
 
 
 def main():
-
     # Step 1
 
     char_string = return_char_string()
@@ -144,8 +164,9 @@ def main():
     # Step 2
 
     base_sixty_four = return_base_sixty_four()
-    decoded = check(base_sixty_four)
-    print(decoded)
+    checked = check(base_sixty_four)
+    removed = remove_equals(base_sixty_four)
+
 
 if __name__ == '__main__':
     main()
