@@ -133,13 +133,14 @@ transform_list_binary_to_decimal(['01000001','01000010','01000011','01000100'])
 # Story 22: Transformer chaque élément dans le caractère ASCII correspondant
 # Exemple : [65, 66, 67, 68]
 
+
 def decimal_list_to_ascii(transfrom_value):
-    """
+    """ Transforms the decimal value into an ascii character
 
     Args:
-        transfrom_value:
+        transfrom_value(List): decimal value in list
 
-    Returns:
+    Returns: List of character value
 
     """
 
@@ -150,3 +151,25 @@ def decimal_list_to_ascii(transfrom_value):
 decimal_list_to_ascii([65, 66, 67, 68])
 
 # Result : ['A', 'B', 'C', 'D']
+
+
+# Story 23: Transformer la liste en chaine de caractères
+# Exemple : ['A', 'B', 'C', 'D']
+
+
+def list_decimal_to_string(transform_string):
+    """ Transfrom list to string
+
+    Args:
+        transform_string(List): list of character
+
+    Returns: string
+
+    """
+
+    return ''.join(transform_string)
+
+
+list_decimal_to_string(['A', 'B', 'C', 'D'])
+
+# Result : "ABCD"
