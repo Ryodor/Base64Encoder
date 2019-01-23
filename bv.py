@@ -150,6 +150,22 @@ def remove_equals(base_sixty_four):
         return removed
 
 
+def change_to_list(removed):
+    """
+    This method changes a string into a list
+    Args:
+        removed (string): A string
+
+    Returns:
+        list ([]): A list of character
+
+    """
+    list = []
+    for character in removed:
+        list.append(character)
+    return list
+
+
 def main():
     # Step 1
 
@@ -166,6 +182,7 @@ def main():
     base_sixty_four = return_base_sixty_four()
     checked = check(base_sixty_four)
     removed = remove_equals(base_sixty_four)
+    list = change_to_list(removed)
 
 
 if __name__ == '__main__':
