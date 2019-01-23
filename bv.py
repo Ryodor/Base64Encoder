@@ -166,6 +166,23 @@ def change_to_list(removed):
     return list
 
 
+def transform_into_b64(list):
+    """This method transforms each element in its index value
+
+    Args:
+        list ([]): A list
+    Returns:
+        b64_list ([]): A list
+    """
+    characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    char_b64 = []
+    for element in list:
+        i = characters.index(element)
+        char_b64.append(i)
+    return char_b64
+
+
+
 def main():
     # Step 1
 
@@ -183,6 +200,8 @@ def main():
     checked = check(base_sixty_four)
     removed = remove_equals(base_sixty_four)
     list = change_to_list(removed)
+    binary = transform_into_b64(list)
+
 
 
 if __name__ == '__main__':
