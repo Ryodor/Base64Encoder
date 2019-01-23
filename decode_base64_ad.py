@@ -79,17 +79,19 @@ transfrom_binary_multipl8("010000010100001001000011010001000000")
 # Result : "01000001010000100100001101000100"
 
 
-# Story 20: Transformer la chaine en liste (chaque élément a une longueur de huit)
+# Story 20: Transformer la chaine en liste
+# (chaque élément a une longueur de huit)
 # Exemple : "01000001010000100100001101000100"
 
 
 def transform_binary_string_to_list(transform_string):
-    """
+    """ Transformation of the binary value character string into an 8 character
+        block list
 
     Args:
-        transform_string:
+        transform_string(String): String character binary value
 
-    Returns:
+    Returns: List of string character binary value
 
     """
     transform_string_to_list = list()
@@ -102,3 +104,49 @@ def transform_binary_string_to_list(transform_string):
 transform_binary_string_to_list("01000001010000100100001101000100")
 
 # Result : ['01000001','01000010','01000011','01000100']
+
+# Story 21: Transformer chaque élément de la liste dans sa valeur décimale
+# Exemple : ['01000001','01000010','01000011','01000100']
+
+
+def transform_list_binary_to_decimal(transfrom_value):
+    """ Transform List string binary value in decimal value
+
+    Args:
+        transfrom_value(List): string of binary value
+
+    Returns: list decimal value int
+
+    """
+
+    for index, value in enumerate(transfrom_value):
+        transfrom_value[index] = int(value, 2)
+
+    return transfrom_value
+
+
+transform_list_binary_to_decimal(['01000001','01000010','01000011','01000100'])
+
+# Result : [65, 66, 67, 68]
+
+
+# Story 22: Transformer chaque élément dans le caractère ASCII correspondant
+# Exemple : [65, 66, 67, 68]
+
+def decimal_list_to_ascii(transfrom_value):
+    """
+
+    Args:
+        transfrom_value:
+
+    Returns:
+
+    """
+
+    for index, value in enumerate(transfrom_value):
+        transfrom_value[index] = chr(value)
+
+
+decimal_list_to_ascii([65, 66, 67, 68])
+
+# Result : ['A', 'B', 'C', 'D']
