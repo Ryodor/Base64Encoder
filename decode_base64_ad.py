@@ -77,3 +77,28 @@ def transfrom_binary_multipl8(transform_binary):
 transfrom_binary_multipl8("010000010100001001000011010001000000")
 
 # Result : "01000001010000100100001101000100"
+
+
+# Story 20: Transformer la chaine en liste (chaque élément a une longueur de huit)
+# Exemple : "01000001010000100100001101000100"
+
+
+def transform_binary_string_to_list(transform_string):
+    """
+
+    Args:
+        transform_string:
+
+    Returns:
+
+    """
+    transform_string_to_list = list()
+    for i in range(0,len(transform_string), 8):
+        transform_string_to_list.append(transform_string[i:i + 8])
+
+    return transform_string_to_list
+
+
+transform_binary_string_to_list("01000001010000100100001101000100")
+
+# Result : ['01000001','01000010','01000011','01000100']
