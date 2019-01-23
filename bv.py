@@ -1,3 +1,7 @@
+# Step 1
+import re
+
+
 def return_char_string():
     """This method returns a string with 'ABCD' in value
 
@@ -96,7 +100,92 @@ def fill_blank(sliced_list):
     return filled_list
 
 
+# Step 2
+
+def return_base_sixty_four():
+    """This method returns a string with 'QUJDRA==' in value
+
+    Returns:
+        char_string (string): always equal to 'QUJDRA=='
+    """
+    base_sixty_four = 'QUJDRA=='
+    return base_sixty_four
+
+
+def check(base_sixty_four):
+    """
+    This method checks if the string is valid in base64
+    Args:
+        base_sixty_four (string): A string
+
+    Returns:
+        (boolean): A boolean
+
+    """
+    x = re.findall("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$", base_sixty_four)
+    if x is None:
+        return False
+    else:
+        return True
+
+
+def remove_equals(base_sixty_four):
+    """
+    This method removes the equal sign if there is some
+    Args:
+        base_sixty_four (string): A string
+
+    Returns:
+        removed (string): A string without "="
+
+    """
+    x = re.findall("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$", base_sixty_four)
+    removed = ''
+    if x is None:
+        return False
+    else:
+        for element in base_sixty_four:
+            i = element.replace('=', '')
+            removed += i
+        return removed
+
+
+def change_to_list(removed):
+    """
+    This method changes a string into a list
+    Args:
+        removed (string): A string
+
+    Returns:
+        list ([]): A list of character
+
+    """
+    list = []
+    for character in removed:
+        list.append(character)
+    return list
+
+
+def transform_into_b64(list):
+    """This method transforms each element in its index value
+
+    Args:
+        list ([]): A list
+    Returns:
+        b64_list ([]): A list
+    """
+    characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    char_b64 = []
+    for element in list:
+        i = characters.index(element)
+        char_b64.append(i)
+    return char_b64
+
+
+
 def main():
+    # Step 1
+
     char_string = return_char_string()
     char_list = transform_to_list(char_string)
     ascii_list = transform_to_ascii(char_list)
@@ -104,6 +193,15 @@ def main():
     merged_elements = merge_elements(binary_list)
     sliced_list = slice_list(merged_elements)
     filled_list = fill_blank(sliced_list)
+
+    # Step 2
+
+    base_sixty_four = return_base_sixty_four()
+    checked = check(base_sixty_four)
+    removed = remove_equals(base_sixty_four)
+    list = change_to_list(removed)
+    binary = transform_into_b64(list)
+
 
 
 if __name__ == '__main__':
